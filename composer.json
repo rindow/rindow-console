@@ -1,0 +1,36 @@
+{
+    "name": "rindow/rindow-console",
+    "type": "library",
+    "description": "Supports console application",
+    "keywords": ["rindow","framework","console"],
+    "license": "BSD-3-Clause",
+    "require": {
+        "php": ">=5.3.3",
+        "rindow/rindow-stdlib": "*"
+    },
+    "require-dev": {
+        "rindow/rindow-stdlib": "*",
+        "rindow/rindow-container": "*"
+    },
+    "suggest": {
+        "rindow/rindow-container": "It needs some service container"
+    },
+    "autoload": {
+        "psr-0": {
+            "Rindow\\Console\\": "src/"
+        }
+    },
+
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://rindow.github.io/rindow-packagist/packages.json",
+            "options": {
+                "ssl": {
+                    "verify_peer": "true"
+                }
+            }
+        }
+    ],
+    "minimum-stability": "dev"
+}
