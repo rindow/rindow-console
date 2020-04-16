@@ -5,12 +5,15 @@ use Rindow\Container\ModuleManager;
 
 class Launcher
 {
-    static public function run($config,$namespace,$argv)
+    static public function run($config,$namespace,$argv,$func=null)
     {
         try {
             $moduleManager = new ModuleManager($config);
             $app = $moduleManager->getServiceLocator()->get('Rindow\\Console\\Command\\DefaultDispatcher');
             $exitcode = $app->run($namespace,$argv);
+            if($func) {
+                $exitcode = call_user_func($func,$moduleManager,$argv,$exitcode);
+            }
         } catch(\Exception $e) {
             while(true) {
                 echo 'Exception: '.get_class($e)."\n";
